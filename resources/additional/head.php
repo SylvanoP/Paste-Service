@@ -22,6 +22,20 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" integrity="sha384-Mujw/rYMLaAmNKgBlyiHh/Vc+p4UU7I/lfQl/X4pICrFJguheK7vZjZmZyTix1HM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.11.7/dist/sweetalert2.all.min.js" integrity="sha256-n/1OVXs6H2e+wnqINi4kU/UgJyp2OVCT5FHbGbqRqYc=" crossorigin="anonymous"></script>
 
+    <?php
+    if(isset($_POST['changeToDark'])){
+        $theme = 'dark';
+        $helper->setCookie('theme',$theme,'864000','/');
+//        echo sendInfo('Deine Codeansicht wurde geändert');
+    }
+
+    if(isset($_POST['changeToLight'])){
+        $theme = 'light';
+        $helper->setCookie('theme',$theme,'864000','/');
+//        echo sendInfo('Deine Codeansicht wurde geändert');
+    }
+    ?>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js" integrity="sha256-YZQM6/hLBZYkb01VYf17isoQM4qpaOP+aX96hhYrWhg=" crossorigin="anonymous"></script>
     <?php if($theme == 'dark'){ ?>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css" integrity="sha256-xevuwyBEb2ZYh4nDhj0g3Z/rDBnM569hg9Vq6gEw/Sg=" crossorigin="anonymous" /></head>

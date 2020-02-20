@@ -10,19 +10,6 @@
                 <rect x="3" y="6" width="18" height="2" rx=".95" ry=".95"/>
             </svg>
         </button>
-        <?php
-        if(isset($_POST['changeToDark'])){
-            $theme = 'dark';
-            $helper->setCookie('theme',$theme,'864000','/');
-            echo sendInfo('Deine Codeansicht wurde geändert');
-        }
-
-        if(isset($_POST['changeToLight'])){
-            $theme = 'light';
-            $helper->setCookie('theme',$theme,'864000','/');
-            echo sendInfo('Deine Codeansicht wurde geändert');
-        }
-        ?>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
 
