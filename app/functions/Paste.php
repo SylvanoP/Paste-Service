@@ -6,7 +6,7 @@ class Paste extends Controller
 
     public function getData($uniqe_id, $data)
     {
-        $SQL = self::db()->prepare("SELECT * FROM `entrys` WHERE `uniqe_id` = :uniqe_id");
+        $SQL = self::db()->prepare("SELECT * FROM `paste_data` WHERE `uniqe_id` = :uniqe_id");
         $SQL->execute(array(":uniqe_id" => $uniqe_id));
         $response = $SQL->fetch(PDO::FETCH_ASSOC);
 
@@ -22,7 +22,7 @@ class Paste extends Controller
 
     public function getLast()
     {
-        $SQL = self::db()->prepare("SELECT * FROM `entrys` ORDER BY `id` DESC LIMIT 4");
+        $SQL = self::db()->prepare("SELECT * FROM `paste_data` ORDER BY `id` DESC LIMIT 4");
         $SQL->execute();
         return $SQL->fetchAll(PDO::FETCH_ASSOC);
     }

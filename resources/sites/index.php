@@ -25,7 +25,7 @@ if(isset($_POST['createPaste'])){
 
         $uniqe_id = $helper->generateRandomString(rand(6, 8));
 
-        $SQL = $db->prepare('INSERT INTO `entrys`(`uniqe_id`, `user_addr`, `title`, `paste`, `public`, `code`) VALUES (?,?,?,?,?,?)');
+        $SQL = $db->prepare('INSERT INTO `paste_data`(`uniqe_id`, `user_addr`, `title`, `paste`, `public`, `code`) VALUES (?,?,?,?,?,?)');
         $SQL->execute(array($uniqe_id, $user->get_ip_address(), $_POST['title'], $_POST['paste'], $_POST['public'], $_POST['code']));
 
         echo sendSuccess('Dein Paste wurde erfolgreich gespeichert');
