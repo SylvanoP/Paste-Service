@@ -48,7 +48,7 @@ if(isset($_POST['createPaste'])){
                     <?php
 
                     if(isset($_POST['code']) && !empty($_POST['code'])){
-                        $link = $helper->url().$uniqe_id.'/'.$_POST['code'];
+                        $link = $helper->url().$uniqe_id.'/'.$helper->protect($_POST['code']);
                     } else {
                         $link = $helper->url().$uniqe_id;
                     }
@@ -114,7 +114,7 @@ if(isset($_POST['createPaste'])){
                                                 if(is_null($item['code'])){
                                                     $link = $helper->url().$item['uniqe_id'];
                                                 } else {
-                                                    $link = $helper->url().$item['uniqe_id'].'/'.$item['code'];
+                                                    $link = $helper->url().$item['uniqe_id'].'/'.$helper->protect($item['code']);
                                                 }
                                         ?>
                                             <div class="mb-5 ml-3">
