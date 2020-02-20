@@ -11,3 +11,4 @@ composer.phar
 .idea/webServers.xml
 app/controller/config.php
 .idea/workspace.xml
+app/controller/config.php
