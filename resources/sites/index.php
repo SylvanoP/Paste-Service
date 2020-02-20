@@ -6,7 +6,9 @@ if(isset($_POST['createPaste'])){
     $error = null;
 
     if(empty($_POST['title'])){
-        $error = 'Bitte gebe einen Titel an.';
+        $title = 'Ohne Titel';
+    } else {
+        $title = $_POST['title'];
     }
 
     if(empty($_POST['paste'])){
@@ -26,7 +28,7 @@ if(isset($_POST['createPaste'])){
         $uniqe_id = $helper->generateRandomString(rand(6, 8));
 
         $SQL = $db->prepare('INSERT INTO `paste_data`(`uniqe_id`, `user_addr`, `title`, `paste`, `public`, `code`) VALUES (?,?,?,?,?,?)');
-        $SQL->execute(array($uniqe_id, $user->get_ip_address(), $_POST['title'], $_POST['paste'], $_POST['public'], $_POST['code']));
+        $SQL->execute(array($uniqe_id, $user->get_ip_address(), $title, $_POST['paste'], $_POST['public'], $_POST['code']));
 
         echo sendSuccess('Dein Paste wurde erfolgreich gespeichert');
 
@@ -116,7 +118,7 @@ if(isset($_POST['createPaste'])){
                                                 }
                                         ?>
                                             <div class="mb-5 ml-3">
-                                                <a href="<?= $link; ?>"><?= mb_strimwidth($item['title'], 0, 26,'...'); ?></a><br>
+                                                <a href="<?= $link; ?>"><?= mb_strimwidth($helper->protect($item['title']), 0, 26,'...'); ?></a><br>
                                                 <small><?= $time->elapsedFromUNIX($time->getTimestamp($item['created_at'])); ?></small>
                                             </div>
                                             <?php if($i < 3){ echo '<hr>'; } ?>

@@ -14,7 +14,7 @@ if(empty($id)){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/prism.min.js" integrity="sha256-YZQM6/hLBZYkb01VYf17isoQM4qpaOP+aX96hhYrWhg=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css" integrity="sha256-cuvic28gVvjQIo3Q4hnRpQSNB0aMw3C+kjkR0i+hrWg=" crossorigin="anonymous" />
 
-    <pre><code class="language-<?= $code; ?>"><?= ($paste->getData($id,'paste')); ?></code></pre>
+    <pre><code class="language-<?= $code; ?>"><?= $helper->protect($paste->getData($id,'paste')); ?></code></pre>
 <?php } else { ?>
-    <?= $helper->nl2br2($paste->getData($id,'paste')); ?>
+    <?= $helper->protect($helper->nl2br2($paste->getData($id,'paste'))); ?>
 <?php } ?>

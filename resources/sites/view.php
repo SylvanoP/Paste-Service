@@ -18,7 +18,7 @@ if(empty($id)){
                     <div class="card-group mb-5">
                         <div class="d-flex align-items-center p-5">
                             <h2 class="flex-grow-1 mr-5 lead">
-                                <?= $paste->getData($id,'title'); ?>
+                                <?= $helper->protect($paste->getData($id,'title')); ?>
                             </h2>
                         </div>
 
