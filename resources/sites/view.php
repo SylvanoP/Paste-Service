@@ -8,12 +8,21 @@ if(empty($id)){
     header('Location: '.$helper->url());
     die();
 }
+
+if(is_null($paste->getData($id,'code'))){
+    $link = $helper->url().'raw/'.$id;
+} else {
+    $link = $helper->url().'raw/'.$id.'/'.$helper->protect($helper->protect($paste->getData($id,'code')));
+}
+
 ?>
 <main>
     <div class="py-11">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+
+                    <a href="<?= $link ?>" class="btn btn-primary btn-sm" style="float:right; margin-top: 20px; margin-right: 10px;">Raw ansehen</a>
 
                     <div class="card-group mb-5">
                         <div class="d-flex align-items-center p-5">
