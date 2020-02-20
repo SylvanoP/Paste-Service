@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+
+    RewriteEngine on
+    RewriteBase /
+
+	#mainpage
+	RewriteRule ^/?$ index.php?page=index [L]
+
+    #paste
+    RewriteRule ^([A-Za-z0-9-]+)?$ index.php?page=view&id=$1 [NC,L]
+    RewriteRule ^raw/([A-Za-z0-9-]+)?$ index.php?page=view_raw&id=$1 [NC,L]
+
+    RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-]+)?$ index.php?page=view&id=$1&code=$2 [NC,L]
+    RewriteRule ^raw/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)?$ index.php?page=view_raw&id=$1&code=$2 [NC,L]
+
+</IfModule>
+<Files 403.shtml>
+    order allow,deny
+    allow from all
+</Files>
